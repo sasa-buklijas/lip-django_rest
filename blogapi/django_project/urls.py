@@ -20,4 +20,6 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("api/v1/", include("posts.urls")),
+    # enable web login for api, add "Log in" on top-right
+    path("api-auth/", include("rest_framework.urls")),
 ]

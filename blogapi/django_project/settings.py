@@ -48,7 +48,8 @@ INSTALLED_APPS = [
 # Django rest framework settings
 REST_FRAMEWORK = { 
     "DEFAULT_PERMISSION_CLASSES": [
-        "rest_framework.permissions.AllowAny", 
+        #"rest_framework.permissions.AllowAny",     # any user, authenticated or not, has full access 
+        "rest_framework.permissions.IsAuthenticated",   # only authenticated, registered users have access
     ],
 }
 
