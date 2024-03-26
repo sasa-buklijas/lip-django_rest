@@ -4,3 +4,4 @@ venv*
 *.pyc
 
 blogapi/db.sqlite3
+.vscode/settings.json

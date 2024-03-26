@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # 3rd-party apps
     "rest_framework",
+    "corsheaders",
     # Local
     'accounts.apps.AccountsConfig',
     "posts.apps.PostsConfig",
@@ -54,12 +55,23 @@ REST_FRAMEWORK = {
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    "corsheaders.middleware.CorsMiddleware",
+    # CorsMiddleware should be placed as high as possible, 
+    # especially before any middleware that can generate responses
+    # such as Django’s CommonMiddleware or Whitenoise’s WhiteNoiseMiddleware
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+CORS_ORIGIN_WHITELIST = (
+    "http://localhost:3000",    # port for React
+    "http://localhost:8080",    # for django 
+)
+
+CSRF_TRUSTED_ORIGINS = ["http://localhost:3000"]    # port for React
 
 ROOT_URLCONF = 'django_project.urls'
 
