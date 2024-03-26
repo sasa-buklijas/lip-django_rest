@@ -1,0 +1,6 @@
+
+venv*
+
+*.pyc
+
+blogapi/db.sqlite3
