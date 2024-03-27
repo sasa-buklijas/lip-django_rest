@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     "allauth.socialaccount", 
     "dj_rest_auth",
     "dj_rest_auth.registration",
+    "drf_spectacular",
     # Local
     'accounts.apps.AccountsConfig',
     "posts.apps.PostsConfig",
@@ -62,6 +63,14 @@ REST_FRAMEWORK = {
         #"rest_framework.authentication.BasicAuthentication",    # for curl, username:password for each request
         "rest_framework.authentication.TokenAuthentication",    # curl, with tokens
     ],
+    "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",   # for "drf_spectacular" in INSTALLED_APPS
+}
+
+SPECTACULAR_SETTINGS = {
+    "TITLE": "Blog API Project",
+    "DESCRIPTION": "A sample blog to learn about DRF",
+    "VERSION": "1.0.0",
+    # OTHER SETTINGS
 }
 
 MIDDLEWARE = [
