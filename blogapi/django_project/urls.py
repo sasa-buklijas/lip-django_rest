@@ -23,4 +23,5 @@ urlpatterns = [
     # enable web login for api, add "Log in" on top-right
     path("api-auth/", include("rest_framework.urls")),
     path("api/v1/dj-rest-auth/", include("dj_rest_auth.urls")),
+    path("api/v1/dj-rest-auth/registration/", include("dj_rest_auth.registration.urls")),
 ]
