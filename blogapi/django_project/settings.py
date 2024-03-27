@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     # 3rd-party apps
     "rest_framework",
     "corsheaders",
+    "rest_framework.authtoken", # for rest_framework.authentication.TokenAuthentication
+    "dj_rest_auth",
     # Local
     'accounts.apps.AccountsConfig',
     "posts.apps.PostsConfig",
@@ -50,6 +52,11 @@ REST_FRAMEWORK = {
     "DEFAULT_PERMISSION_CLASSES": [
         #"rest_framework.permissions.AllowAny",     # any user, authenticated or not, has full access 
         "rest_framework.permissions.IsAuthenticated",   # only authenticated, registered users have access
+    ],
+    "DEFAULT_AUTHENTICATION_CLASSES": [
+        "rest_framework.authentication.SessionAuthentication",  # django web page API will still work
+        #"rest_framework.authentication.BasicAuthentication",    # for curl, username:password for each request
+        "rest_framework.authentication.TokenAuthentication",    # curl, with tokens
     ],
 }
 
